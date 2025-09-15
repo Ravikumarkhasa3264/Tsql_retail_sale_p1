@@ -50,7 +50,7 @@ quantiy	is null	or
 cogs	is null	or
 total_sale is null
 --Data Exploration
---total numbers of entry in data
+-- Number of rows in Data
 select COUNT(*) Total_sale from retails_sale
 --How many Customers with uniq id
 select count(distinct(customer_id))count_of_Cust_ID from retails_sale
@@ -59,13 +59,13 @@ select count(distinct(category))Uniq_Category from retails_sale
 
 --Data Anlysis
 --Q.1 Write a SQL query to retrieve all columns for sales made on '2022-11-05'
-select top(5) *from  retails_sale 
 
-select*from retails_sale where sale_date='2022-11-05'
+ select*from retails_sale where sale_date='2022-11-05'
 
 /*Q.2 Write a SQL query to retrieve all transactions where the category is 'Clothing' and 
 the quantity sold is more than 4 in the month of Nov-2022*/
-select transactions_id from retails_sale where category ='Clothing' and quantiy>=4 and sale_date>='2022-11-01' and sale_date<'2022-12-01'
+
+ select transactions_id from retails_sale where category ='Clothing' and quantiy>=4 and sale_date>='2022-11-01' and sale_date<'2022-12-01'
 
 --Q.3 Write a SQL query to calculate the total sales (total_sale) for each category.
 select Category,sum(total_sale) Total_sales from retails_Sale group by category
@@ -96,7 +96,7 @@ offset 0 row fetch next 5 rows only
 --Q.9 Write a SQL query to find the number of unique customers who purchased items from each category.
 select category,count(distinct(customer_id))Uniq_customers from retails_sale group by category
 
---Q.10 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17, Evening >17)
+--Q.10 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17,Â EveningÂ >17)
 select 
 case 
  when datepart(hour,sale_time)<12 then'morning'
@@ -110,3 +110,4 @@ case
  else 'Evening'
 end 
 --End of Project
+
